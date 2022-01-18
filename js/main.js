@@ -55,7 +55,7 @@ fadeEls.forEach(function (fadeEl, index) {
 
 
 
-// Swiper
+// Swiper 슬라이드 요소 관리
 new Swiper('.notice-line .swiper-container', {
   direction: 'vertical',
   autoplay: true,
@@ -79,8 +79,19 @@ new Swiper('.promotion .swiper-container', {
     nextEl: '.promotion .swiper-next'
   }
 });
+new Swiper('.awards .swiper-container', {
+  autoplay: true,
+  loop: true,
+  spaceBetween: 30,
+  slidesPerView: 5,
+  navigation: {
+    prevEl:'.awards .swiper-prev',
+    nextEl:'.awards .swiper-next'
+  }
 
+});
 
+// Promotion 슬라이드 토글 기능
 const promotionEl = document.querySelector('.promotion');
 const promotionToggleBtn = document.querySelector('.toggle-promotion');
 let isHidePromotion = false;
@@ -135,3 +146,7 @@ spyEls.forEach(function (spyEl) {
     .setClassToggle(spyEl, 'show')
     .addTo(new ScrollMagic.Controller())
 })
+
+// 올해를 자동으로 구해주는
+const thisYear = document.querySelector('.this-year');
+thisYear.textContent = new Date().getFullYear();
